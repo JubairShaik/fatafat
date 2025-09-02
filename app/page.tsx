@@ -1,5 +1,4 @@
-// app/page.tsx
-
+ 
 import { ComparisonSection } from "@/components/comparison-section";
 import { FavoritesSection } from "@/components/favorites-section";
 import { HeroSection } from "@/components/hero-section";

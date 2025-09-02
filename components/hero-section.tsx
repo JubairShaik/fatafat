@@ -1,4 +1,4 @@
-// components/hero-section.tsx
+ 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 import { LinkButton } from "./reusable/LinkButton";
