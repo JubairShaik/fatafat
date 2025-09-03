@@ -5,7 +5,7 @@ import { LinkButton } from "./reusable/LinkButton";
 export function ComparisonSection() {
   return (
     <section className="py-16 hover:text-brand-dark bg-black text-white relative overflow-hidden">
-      <div className="md:absolute  hidden  inset-0 pointer-events-none">
+      <div className="md:block hidden absolute    inset-0 pointer-events-none">
         {/* Top Left Icons */}
         <Image
           src="/icons/w-machine.png"

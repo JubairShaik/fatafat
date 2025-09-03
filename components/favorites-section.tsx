@@ -41,7 +41,7 @@ export function FavoritesSection() {
                 className={
                   idx === 0
                     ? "bg-brand-primary hover:bg-blue-700"
-                    : " border-[--brand-primary] text-blue hover:bg-brand-primary hover:text-white"
+                    : " border-[--brand-primary] cursor-pointer  text-blue hover:bg-blue-600 hover:text-white"
                 }
               >
                 {category}
