@@ -11,14 +11,13 @@ import {
 } from "@/components/ui/select";
 import { Menu, Search, ShoppingCart, User } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export function Navigation() {
   return (
     <header className="border-b bg-white relative z-50">
-
-      
       <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
-        <div>
+        <Link href="/">
           <Image
             className="dark:invert contain "
             src={`/logo.png`}
@@ -26,7 +25,7 @@ export function Navigation() {
             height={48}
             alt="image-logo"
           />
-        </div>
+        </Link>
 
         <div className="flex items-center  justify-center space-x-2 w-full ">
           <div className="hidden md:block">
@@ -69,7 +68,6 @@ export function Navigation() {
             </Button>
           </div>
 
-   
           <Button variant="ghost" size="icon" className="md:hidden">
             <Menu className="w-6 h-6" />
           </Button>

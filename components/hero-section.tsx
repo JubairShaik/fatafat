@@ -158,7 +158,7 @@ export function HeroSection() {
           </Tabs>
 
           <div className="mt-12 px-8 py-3 ">
-            <LinkButton title="Browse All Appliances" href="/" />
+            <LinkButton title="Browse All Appliances" href="/appliances" />
           </div>
         </div>
       </div>
