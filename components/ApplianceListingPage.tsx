@@ -371,6 +371,7 @@ const ApplianceListingPage = ({
                   >
                     {filter}
                     <button
+                      title="Remove filter"
                       onClick={() => removeFilter(filter)}
                       className="ml-2 hover:text-blue-600"
                     >
@@ -409,7 +410,7 @@ const ApplianceListingPage = ({
               </Select>
             </div>
 
-            <button className="p-2 border border-gray-200 rounded hover:bg-gray-50">
+            <button title="Grid View" className="p-2 border border-gray-200 rounded hover:bg-gray-50">
               <Grid className="w-5 h-5" />
             </button>
           </div>
