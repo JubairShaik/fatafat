@@ -69,9 +69,9 @@
 // const AppliancesPage = () => {
 //   return (
 //     <>
-//       <h1 className="text-4xl font-bold text-center text-gray-900 mb-12">
-//         Find Your Appliance
-//       </h1>
+// <h1 className="text-4xl font-bold text-center text-gray-900 mb-12">
+//   Find Your Appliance
+// </h1>
 
 //       <div className="max-w-[40rem]  mb-10 md:mb-20   mx-auto">
 //         <Accordion type="multiple" className="space-y-4">
@@ -103,10 +103,7 @@
 
 // export default AppliancesPage;
 
-
-// TYPE 02  we can explore dost!  
-
-
+// TYPE 02  we can explore dost!
 
 "use client";
 
@@ -142,16 +139,16 @@ interface RenderNestedItemsProps {
   onItemSelect?: (item: ApplianceItem) => void;
 }
 
-const RenderNestedItems = ({ 
-  items, 
-  level = 0, 
-  onItemSelect 
+const RenderNestedItems = ({
+  items,
+  level = 0,
+  onItemSelect,
 }: RenderNestedItemsProps) => {
   const router = useRouter();
 
   const handleItemClick = (item: ApplianceItem) => {
     console.log(`Selected: ${item.title}`);
-    
+
     if (item.isLeaf && item.slug) {
       // Navigate to the appliance listing page
       router.push(`/appliances/${item.slug}`);
@@ -217,9 +214,9 @@ const RenderNestedItems = ({
             </CollapsibleTrigger>
 
             <CollapsibleContent className="mt-2 ml-4 border-l-2 border-gray-100 pl-4">
-              <RenderNestedItems 
-                items={item.items || []} 
-                level={level + 1} 
+              <RenderNestedItems
+                items={item.items || []}
+                level={level + 1}
                 onItemSelect={onItemSelect}
               />
             </CollapsibleContent>
@@ -248,7 +245,7 @@ const MobileAppliancesSheet = ({ children }: { children: React.ReactNode }) => {
             Browse categories and select the appliance you're looking for.
           </SheetDescription>
         </SheetHeader>
-        
+
         <div className="mt-6 h-full overflow-y-auto">
           <Accordion type="multiple" className="space-y-4">
             {appliancesData.map((category) => (
@@ -267,8 +264,8 @@ const MobileAppliancesSheet = ({ children }: { children: React.ReactNode }) => {
                 </AccordionTrigger>
 
                 <AccordionContent className="px-4 py-3 bg-gray-50 rounded-b-lg">
-                  <RenderNestedItems 
-                    items={category.items} 
+                  <RenderNestedItems
+                    items={category.items}
                     onItemSelect={handleItemSelect}
                   />
                 </AccordionContent>
@@ -314,11 +311,11 @@ const DesktopAppliancesNavigation = () => {
 const AppliancesPage = () => {
   return (
     <>
-      <div className="flex items-center justify-between mb-8">
-        <h1 className="text-4xl text-center font-bold text-gray-900">
+      <div className="flex items-center md:justify-center px-4 md:px-1 justify-between md:mb-20 mb-8">
+        <h1 className="text-3xl md:text-4xl text-center font-bold text-gray-900">
           Find Your Appliance
         </h1>
-        
+
         {/* Mobile Menu Button */}
         <div className="md:hidden">
           <MobileAppliancesSheet>
@@ -340,10 +337,10 @@ const AppliancesPage = () => {
           <p className="text-gray-600 mb-6">
             Tap the menu button above to browse categories
           </p>
-          
+
           {/* Quick Access Cards for Mobile */}
           <div className="grid grid-cols-2 gap-4 max-w-sm mx-auto">
-            {appliancesData.slice(0, 4).map((category:any) => (
+            {appliancesData.slice(0, 4).map((category: any) => (
               <MobileAppliancesSheet key={category.id}>
                 <div className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
                   <category.icon className="w-8 h-8 text-gray-600 mx-auto mb-2" />

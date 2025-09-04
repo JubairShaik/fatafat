@@ -27,8 +27,6 @@ export async function generateStaticParams() {
 // Generate metadata for each page
 
 const AppliancePage = ({ params }: AppliancePageProps) => {
-
-
   const route = getRouteBySlug(params.slug);
 
   if (!route) {
@@ -38,7 +36,7 @@ const AppliancePage = ({ params }: AppliancePageProps) => {
   const breadcrumbItems = getBreadcrumb(params.slug);
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="  max-w-[1400px] mx-auto       px-4">
       {/* Breadcrumb */}
       <Breadcrumb items={breadcrumbItems} className="mb-6" />
 

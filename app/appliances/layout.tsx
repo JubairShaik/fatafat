@@ -138,7 +138,7 @@ const generateBreadcrumbs = (pathname: string) => {
 
 // Breadcrumb Components
 const Breadcrumb = ({ children }: { children: React.ReactNode }) => (
-  <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-8 bg-white px-4 py-3 rounded-lg shadow-sm">
+  <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-8 bg-white px-2 md:px-[15rem] py-3 cursor-pointer   w-full  mx-auto  border-b    ">
     {children}
   </nav>
 );
@@ -185,8 +185,8 @@ export default function AppliancesLayout({
   const breadcrumbs = generateBreadcrumbs(pathname);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto ">
+    <div className="min-h-screen border-b  border-slate-300  ">
+      <div className=" mx-auto ">
         {/* Dynamic Breadcrumb */}
         <Breadcrumb>
           {breadcrumbs.map((crumb, index) => (
@@ -201,7 +201,6 @@ export default function AppliancesLayout({
             </React.Fragment>
           ))}
         </Breadcrumb>
-
         {children}
       </div>
     </div>
