@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
           <Image
             className="dark:invert contain "
-            src={`/logo-white.png`}
+            src={`/logo-dark.svg`}
             width={134}
             height={100}
             alt="image-logo"
@@ -45,10 +45,10 @@ export function Footer() {
             <h4 className="font-semibold mb-4 ">Social</h4>
             <ul className="space-y-2 text-brand-cream">
               <div className="flex space-x-4">
-                <Twitter className="w-5 h-5 cursor-pointer hover:text-brand-primary" />
-                <Facebook className="w-5 h-5 cursor-pointer hover:text-brand-primary" />
-                <Instagram className="w-5 h-5 cursor-pointer hover:text-brand-primary " />
-                <Linkedin className="w-5 h-5 cursor-pointer hover:text-brand-primary" />
+                <Twitter className="w-5 h-5 cursor-pointer hover:text-brand-gradient " />
+                <Facebook className="w-5 h-5 cursor-pointer hover:text-brand-gradient " />
+                <Instagram className="w-5 h-5 cursor-pointer hover:text-brand-gradient  " />
+                <Linkedin className="w-5 h-5 cursor-pointer hover:text-brand-gradient " />
               </div>
             </ul>
           </div>

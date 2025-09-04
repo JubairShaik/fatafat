@@ -132,7 +132,21 @@
 .border-brand-primary { border-color: #0F3CD9; }
 .border-brand-dark { border-color: #3D4A5C; }
 .hover\:bg-brand-primary:hover { background-color: #0F3CD9; }
-.hover\:text-brand-primary:hover { color: #0F3CD9; }
+.hover\:text-brand-primary:hover { color: #0F3CD9; };
+
+
+.bg-brand-gradient {
+  background: linear-gradient(90deg, #005BEA 0%, #45D8FF 100%);
+}
+
+/* Gradient Text */
+.text-brand-gradient {
+  background: linear-gradient(90deg, #005BEA 0%, #45D8FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* For Firefox */
+  color: transparent;
+}
 }
 
 

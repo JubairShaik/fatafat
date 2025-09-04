@@ -45,7 +45,7 @@ export function ServicesSection() {
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-5xl font-semibold text-brand-dark mb-6 ">
             Find a Quick{" "}
-            <span className="text-brand-primary">Service or Repair</span>
+            <span className="text-brand-gradient ">Service or Repair</span>
             <br />
             for Your Appliance
           </h1>

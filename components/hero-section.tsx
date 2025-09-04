@@ -85,15 +85,13 @@ export function HeroSection() {
           height={55}
           className="absolute bottom-12 right-36  "
         />
-
-     
       </div>
 
-      <div className="relative z-30 max-w-7xl mx-auto px-6 pt-20 pb-32">
+      <div className="relative z-30 max-w-7xl mx-auto px-6 pt-12 md:pt-20 pb-32">
         <div className="text-center">
-          <h1 className="text-3xl md:text-5xl font-semibold text-brand-dark mb-6">
+          <h1 className="text-4xl md:text-5xl font-semibold text-brand-dark mb-6">
             Find the{" "}
-            <span className="text-brand-primary">Perfect Appliance</span>
+            <span className="text-brand-gradient ">Perfect Appliance</span>
             <br />
             for Your Home
           </h1>

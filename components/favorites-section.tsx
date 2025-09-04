@@ -27,7 +27,7 @@ export function FavoritesSection() {
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-5xl font-semibold text-brand-dark mb-6 ">
-            People’s <span className="text-brand-primary">Favourite </span>
+            People’s <span className="text-brand-gradient ">Favourite </span>
             <br />
             Appliances
           </h1>

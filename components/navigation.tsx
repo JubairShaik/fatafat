@@ -1,6 +1,5 @@
 // components/navigation.tsx
 
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -9,28 +8,38 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Menu, Search, ShoppingCart, User } from "lucide-react";
+import {
+  CircleQuestionMark,
+  CircleUserRound,
+  MapPin,
+  Menu,
+  Search,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export function Navigation() {
   return (
     <header className="border-b bg-white relative z-50">
-      <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
+      <div className="flex items-center justify-between px-4 md:px-6   py-4 max-w-7xl mx-auto">
         <Link href="/">
           <Image
             className="dark:invert contain "
-            src={`/logo.png`}
-            width={124}
-            height={48}
+            src={`/logo.svg`}
+            width={125}
+            height={40}
             alt="image-logo"
           />
         </Link>
 
         <div className="flex items-center  justify-center space-x-2 w-full ">
-          <div className="hidden md:block">
+          <div className="hidden md:block relative">
+            {/* Location Icon */}
+            <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4 pointer-events-none" />
+
             <Select defaultValue="hyderabad">
-              <SelectTrigger className="w-40">
+              <SelectTrigger className="w-[208px] pl-10">
+                {" "}
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -45,7 +54,7 @@ export function Navigation() {
           {/* Search Bar - Hidden on mobile */}
           <div className="hidden md:block flex-1 max-w-md mx-8">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <Search className="absolute left-3 top-1/2   -translate-y-1/2 text-gray-400 w-4 h-4" />
               <Input
                 type="text"
                 placeholder="Search for appliances, services..."
@@ -56,21 +65,17 @@ export function Navigation() {
         </div>
 
         <div className="flex items-center space-x-4">
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" size="icon">
-              <Search className="w-5 h-5" />
-            </Button>
-            <Button variant="ghost" size="icon">
-              <ShoppingCart className="w-5 h-5" />
-            </Button>
-            <Button variant="ghost" size="icon">
-              <User className="w-5 h-5" />
-            </Button>
+          <div className="hidden md:flex items-center space-x-5 ">
+            <CircleQuestionMark className="w-6 h-6 cursor-pointer  text-slate-500 " />
+
+            <CircleUserRound className="w-6 h-6 cursor-pointer text-slate-500 " />
+
+            <Menu className="w-6 h-6 cursor-pointer text-slate-500 " />
           </div>
 
-          <Button variant="ghost" size="icon" className="md:hidden">
-            <Menu className="w-6 h-6" />
-          </Button>
+          <div className="md:hidden">
+            <Menu className="w-6 h-6 cursor-pointer text-slate-500 " />
+          </div>
         </div>
       </div>
     </header>

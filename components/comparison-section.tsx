@@ -60,7 +60,7 @@ export function ComparisonSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="flex flex-col ">
             <h2 className="text-4xl font-bold mb-6">
-              <span className="text-brand-primary ">Compare Appliances,</span>
+              <span className="text-brand-gradient  ">Compare Appliances,</span>
               <br />
               Find the Perfect Fit
             </h2>
