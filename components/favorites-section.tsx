@@ -80,7 +80,7 @@ export function FavoritesSection() {
           ))}
         </div>
 
-        <LinkButton title="View All" href="/" />
+        <LinkButton title="View All" href="/appliances" />
       </div>
     </section>
   );
