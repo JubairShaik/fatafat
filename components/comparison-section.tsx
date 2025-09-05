@@ -4,22 +4,15 @@ import { LinkButton } from "./reusable/LinkButton";
 
 export function ComparisonSection() {
   return (
-    <section className="py-16 hover:text-brand-dark bg-black text-white relative overflow-hidden">
+    <section className="py-16 hover:text-brand-dark bg-black text-white relative">
       <div className="md:block hidden absolute    inset-0 pointer-events-none">
         {/* Top Left Icons */}
         <Image
-          src="/icons/w-machine.png"
-          alt=""
-          width={60}
-          height={60}
-          className="absolute top-20 left-10 "
-        />
-        <Image
           src="/icons/fridge.png"
           alt=""
-          width={80}
-          height={80}
-          className="absolute bottom-0 left-12  "
+          width={100}
+          height={100}
+          className="absolute -bottom-10 left-12  "
         />
 
         {/* Top Right Icons */}
@@ -46,13 +39,6 @@ export function ComparisonSection() {
           width={75}
           height={75}
           className="absolute bottom-2 right-16  "
-        />
-        <Image
-          src="/icons/w-machine.png"
-          alt=""
-          width={55}
-          height={55}
-          className="absolute bottom-52 right-36  "
         />
       </div>
 

@@ -53,8 +53,7 @@ export function FavoritesSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {products.map((product, idx) => (
             <Card key={idx} className="p-4 hover:shadow-lg transition-shadow">
-              <div className="p-3  bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
-                <div className="w-32 h-32 bg-gray-200 rounded"></div>
+              <div className="p-3  bg-gray-100 rounded-lg mb-4 flex items-center justify-center h-32">
               </div>
               <h3 className="font-semibold text-brand-darkmb-2">
                 {product.name}
