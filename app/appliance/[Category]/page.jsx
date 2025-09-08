@@ -110,7 +110,7 @@ export default function Page() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {products.map((p) => (
               <Link
-                href={`/Appliances/${segments[1]}/${p.name}`}
+                href={`/appliance/${segments[1]}/${p.name}`}
                 key={p.id}
                 className="text-inherit no-underline"
               >

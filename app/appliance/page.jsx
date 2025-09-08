@@ -77,7 +77,7 @@ export default function Page() {
             className="p-4 rounded-xl shadow-sm border hover:shadow-md transition flex flex-col"
           >
             <Link
-              href={`/Appliances/${product.slug}`}
+              href={`/appliance/${product.slug}`}
               className="flex flex-col flex-grow"
             >
               <div className="h-36 bg-muted rounded-lg mb-4" />
