@@ -5,14 +5,9 @@ import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Star } from "lucide-react"
 import Image from "next/image"
+import { appliances } from "@/data/appliances"
 
 export default function BrandPage() {
-  const products = Array(8).fill({
-    name: "Voltas AC 1.5 Ton",
-    rating: 4.5,
-    warranty: "4 Yr Warranty",
-  })
-
   return (
     <div className="p-6 max-w-7xl mx-auto space-y-6">
       <Card className="h-56 md:h-72 bg-gray-100 flex items-center justify-center relative overflow-hidden">
@@ -38,9 +33,9 @@ export default function BrandPage() {
           <div className="flex flex-col items-center gap-4 mt-1">
             <p className="text-4xl font-bold text-green-600">4.5</p>
             <div className="flex items-center">
-                {[...Array(5)].map((_, i) => (
+              {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 text-green-500 fill-green-500" />
-                ))}
+              ))}
             </div>
           </div>
           <p className="text-xs text-gray-500 mt-2">Based on 25K+ reviews</p>
@@ -48,12 +43,8 @@ export default function BrandPage() {
       </div>
 
       <div className="flex flex-wrap gap-2">
-        <Button variant="outline" size="sm">
-          Category
-        </Button>
-        <Button variant="outline" size="sm">
-          Price
-        </Button>
+        <Button variant="outline" size="sm">Category</Button>
+        <Button variant="outline" size="sm">Price</Button>
         <input
           type="text"
           placeholder="Search"
@@ -63,27 +54,29 @@ export default function BrandPage() {
 
       <div className="grid md:grid-cols-3 gap-6">
         <div className="md:col-span-2 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {products.map((product, i) => (
-            <Card key={i} className="p-4 space-y-3">
-              <div className="h-24 bg-gray-100 flex items-center justify-center text-gray-500">
-                [Image]
-              </div>
-              <h3 className="font-semibold text-sm">{product.name}</h3>
-              <div className="flex items-center text-sm text-gray-600">
-                <Star className="w-4 h-4 text-yellow-400 mr-1" /> {product.rating}
-              </div>
-              <p className="text-xs text-gray-500">{product.warranty}</p>
-              <div className="flex items-center space-x-2">
-                <Checkbox id={`compare-${i}`} />
-                <label
-                  htmlFor={`compare-${i}`}
-                  className="text-xs text-gray-600 cursor-pointer"
-                >
-                  Add to Compare
-                </label>
-              </div>
-            </Card>
-          ))}
+          {appliances.map(category =>
+            category.products.map((product) => (
+              <Card key={product.id} className="p-4 space-y-3">
+                <div className="h-24 bg-gray-100 flex items-center justify-center text-gray-500">
+                  [Image]
+                </div>
+                <h3 className="font-semibold text-sm">{product.name}</h3>
+                <div className="flex items-center text-sm text-gray-600">
+                  <Star className="w-4 h-4 text-yellow-400 mr-1" /> {product.rating}
+                </div>
+                <p className="text-xs text-gray-500">{product.warranty}</p>
+                <div className="flex items-center space-x-2">
+                  <Checkbox id={`compare-${product.id}`} />
+                  <label
+                    htmlFor={`compare-${product.id}`}
+                    className="text-xs text-gray-600 cursor-pointer"
+                  >
+                    Add to Compare
+                  </label>
+                </div>
+              </Card>
+            ))
+          )}
         </div>
 
         <div className="space-y-6">

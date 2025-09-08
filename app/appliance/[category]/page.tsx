@@ -1,32 +1,32 @@
 "use client"
 
+import { use, useMemo } from "react"
+import { appliances } from "@/data/appliances"
+import { notFound } from "next/navigation"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Star } from "lucide-react"
-import Image from "next/image"
 
-export default function AirConditionerPage() {
-  const products = Array(8).fill({
-    name: "Voltas AC 1.5 Ton",
-    rating: 4.5,
-    warranty: "4 Yr Warranty",
-  })
+type CategoryPageProps = {
+  params: Promise<{ category: string }>
+}
 
-  const brands = [
-    "/samsung.png",
-    "/lg.png",
-    "/hitachi.png",
-    "/whirlpool.png",
-    "/carrier.png",
-    "/voltas.png",
-    "/panasonic.png",
-    "/godrej.png",
-  ]
+export default function CategoryPage({ params }: CategoryPageProps) {
+  const { category } = use(params) // ✅ unwrap Promise with React.use()
+
+  const categoryData = useMemo(
+    () => appliances.find((c) => c.slug === category),
+    [category]
+  )
+
+  if (!categoryData) return notFound()
+
+  const { name, products, filters } = categoryData
 
   return (
     <div className="p-6 max-w-7xl mx-auto space-y-6">
-      <h1 className="text-2xl font-bold">Air Conditioner</h1>
+      <h1 className="text-2xl font-bold">{name}</h1>
 
       <div className="grid md:grid-cols-3 gap-6">
         <Card className="md:col-span-2 h-60 flex items-center justify-center bg-gray-100">
@@ -35,16 +35,15 @@ export default function AirConditionerPage() {
         <Card className="p-4 flex flex-col justify-between">
           <div>
             <h2 className="font-semibold mb-2">
-              How Does Air Conditioning Work? The Science Behind AC
+              How Does {name} Work? The Science Behind It
             </h2>
             <p className="text-xs text-gray-500 mb-2">2023-09-02</p>
             <div className="h-24 bg-gray-100 mb-3 flex items-center justify-center text-gray-500">
               [Image Placeholder]
             </div>
             <p className="text-sm text-gray-600 line-clamp-4">
-              Whether you need to cool your place or business, air conditioning
-              provides comfort. Learn how AC systems regulate temperature,
-              remove humidity, and improve indoor air quality.
+              Discover how {name.toLowerCase()} systems function, their features,
+              and how they make your life easier.
             </p>
           </div>
           <Button variant="outline" className="mt-3 self-start">
@@ -52,22 +51,23 @@ export default function AirConditionerPage() {
           </Button>
         </Card>
       </div>
+
       <div className="space-y-4">
         <h2 className="text-lg font-semibold">Trends</h2>
         <p className="text-sm text-gray-600">
-          The latest air conditioning technology emphasizes efficiency, energy
-          savings, and smarter functionality.
+          The latest {name.toLowerCase()} technology emphasizes efficiency,
+          energy savings, and smarter functionality.
         </p>
 
         <h2 className="text-lg font-semibold">What to consider</h2>
         <p className="text-sm text-gray-600">
-          Factors such as energy rating, cooling capacity, warranty, and smart
-          features should be considered when buying an AC.
+          Factors such as price, rating, warranty, and smart features should be
+          considered when buying a {name.toLowerCase()}.
         </p>
 
         <div className="flex flex-wrap gap-2">
           <Button variant="outline" size="sm">
-            Brands
+            Filters
           </Button>
           <Button variant="outline" size="sm">
             Price
@@ -108,15 +108,13 @@ export default function AirConditionerPage() {
 
         <div className="space-y-6">
           <Card className="p-4">
-            <h2 className="font-semibold mb-3">Top AC Brands</h2>
+            <h2 className="font-semibold mb-3">Top {name} Brands</h2>
             <div className="grid grid-cols-3 gap-3">
-              {brands.map((logo, i) => (
+              {filters.map((filter, i) => (
                 <div
                   key={i}
                   className="h-12 bg-gray-100 flex items-center justify-center rounded"
-                >
-                  <Image src={logo} alt="brand" width={60} height={40} />
-                </div>
+                ></div>
               ))}
             </div>
           </Card>
@@ -124,16 +122,15 @@ export default function AirConditionerPage() {
           <Card className="p-4 flex flex-col justify-between">
             <div>
               <h2 className="font-semibold mb-2">
-                How Does Air Conditioning Work? The Science Behind AC
+                How Does {name} Work? The Science Behind It
               </h2>
               <p className="text-xs text-gray-500 mb-2">2023-09-02</p>
               <div className="h-24 bg-gray-100 mb-3 flex items-center justify-center text-gray-500">
                 [Image Placeholder]
               </div>
               <p className="text-sm text-gray-600 line-clamp-4">
-                Whether you need to cool your place or business, air conditioning
-                provides comfort. Learn how AC systems regulate temperature,
-                remove humidity, and improve indoor air quality.
+                Learn the working mechanism, benefits, and features of modern{" "}
+                {name.toLowerCase()} systems.
               </p>
             </div>
             <Button variant="outline" className="mt-3 self-start">
