@@ -52,7 +52,6 @@ export default function Page() {
 
   return (
     <div className="p-8">
-      {/* Breadcrumb + Search */}
       <div className="flex items-center justify-between mb-6 w-full">
         <div>
           <Breadcrumb>
@@ -79,7 +78,6 @@ export default function Page() {
         </div>
       </div>
 
-      {/* Product Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => {
@@ -145,7 +143,6 @@ export default function Page() {
         )}
       </div>
 
-      {/* Floating Compare Bar */}
       {compareList.length > 0 && (
         <div className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-white shadow-lg border rounded-xl px-6 py-3 flex items-center gap-4 z-50">
           <span className="font-medium">Comparing:</span>
@@ -158,7 +155,7 @@ export default function Page() {
             )
           })}
           <Link
-            href={`/compare?ids=${compareList.join(",")}`}
+            href={`/appliance/compare?ids=${compareList.join(",")}`}
             className="ml-4 text-sm text-blue-600 underline"
           >
             Compare Now

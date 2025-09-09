@@ -20,7 +20,7 @@ export default function AppliancePage() {
   const [selectedFilters, setSelectedFilters] = useState<SelectedFilters>({})
   const [searchTerms, setSearchTerms] = useState<Record<string, string>>({})
   const [currentPage, setCurrentPage] = useState(1)
-  const itemsPerPage = 9
+  const itemsPerPage = 8
 
   const allFilters = appliances
     .flatMap((c) => c.filters)
@@ -94,7 +94,7 @@ export default function AppliancePage() {
       <div className="flex flex-col lg:flex-row gap-6 p-4 sm:p-6">
         <aside className="w-full lg:w-64 border-b lg:border-r pb-4 lg:pb-0 lg:pr-4">
           <h2 className="font-semibold mb-4">Filters</h2>
-          <ScrollArea className="h-[160vh]">
+          <ScrollArea className="h-[100vh]">
             {allFilters.map((filter) => {
               const searchValue = searchTerms[filter.name] || ""
               const filteredOptions = filter.options.filter((opt) =>
@@ -132,7 +132,6 @@ export default function AppliancePage() {
           </ScrollArea>
         </aside>
 
-        {/* Products */}
         <div className="flex-1">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4">
             <div className="flex items-center gap-2">
@@ -147,7 +146,6 @@ export default function AppliancePage() {
             </div>
 
             <div className="flex items-center gap-4">
-              {/* Category Dropdown using shadcn Select */}
               <Select value={selectedCategory} onValueChange={handleCategoryChange}>
                 <SelectTrigger className="w-[180px]">
                   <SelectValue placeholder="All Categories" />
@@ -162,7 +160,6 @@ export default function AppliancePage() {
                 </SelectContent>
               </Select>
 
-              {/* Sort Tabs */}
               <Tabs value={selectedSort} onValueChange={handleSortChange}>
                 <TabsList>
                   <TabsTrigger value="Best Match">Best Match</TabsTrigger>
@@ -173,8 +170,7 @@ export default function AppliancePage() {
             </div>
           </div>
 
-          {/* Product Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             {currentProducts.map((p) => (
               <Link href={`/appliance/${p.slug}/${p.name}`} key={p.id} className="text-inherit no-underline">
                 <Card className="p-2">
