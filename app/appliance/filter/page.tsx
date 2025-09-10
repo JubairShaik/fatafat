@@ -121,6 +121,7 @@ export default function AppliancePage() {
                         <Checkbox
                           checked={selectedFilters[filter.name]?.includes(option)}
                           onCheckedChange={() => handleFilterChange(filter.name, option)}
+                          className="border-muted-foreground"
                         />
                         <span>{option}</span>
                       </label>
@@ -147,7 +148,7 @@ export default function AppliancePage() {
 
             <div className="flex items-center gap-4">
               <Select value={selectedCategory} onValueChange={handleCategoryChange}>
-                <SelectTrigger className="w-[180px]">
+                <SelectTrigger className="md:w-[180px]">
                   <SelectValue placeholder="All Categories" />
                 </SelectTrigger>
                 <SelectContent>
@@ -161,7 +162,7 @@ export default function AppliancePage() {
               </Select>
 
               <Tabs value={selectedSort} onValueChange={handleSortChange}>
-                <TabsList>
+                <TabsList className="hidden md:flex bg-sidebar-ring">
                   <TabsTrigger value="Best Match">Best Match</TabsTrigger>
                   <TabsTrigger value="Rating">Rating</TabsTrigger>
                   <TabsTrigger value="Warranty">Warranty</TabsTrigger>
@@ -170,37 +171,40 @@ export default function AppliancePage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-6">
             {currentProducts.map((p) => (
-              <Link href={`/appliance/${p.slug}/${p.name}`} key={p.id} className="text-inherit no-underline">
-                <Card className="p-2">
-                  <div className="bg-muted h-32 rounded mb-2" />
-                  <CardHeader className="p-0">
-                    <span className="text-sm font-medium">{p.name}</span>
-                  </CardHeader>
-                  <CardContent className="p-0 text-xs text-muted-foreground">
-                    <div className="flex items-center gap-1 mb-1">
-                      <Star className="w-4 h-4 text-chart-4" />
-                      <span className="font-medium text-card-foreground">{p.rating}</span>
-                    </div>
-                    <div className="flex gap-2 mb-1 flex-wrap">
-                      {Object.entries(p.specs).map(([key, value]) => (
-                        <p key={key}>{value}</p>
-                      ))}
-                      <p>{p.warranty}</p>
-                    </div>
-                    <label className="flex items-center gap-2 text-sm">
-                      <Checkbox id={`compare-${p.id}`} />
-                      Add to Compare
-                    </label>
-                  </CardContent>
-                </Card>
+              <Link
+                href={`/appliance/${p.slug}/${p.name}`}
+                key={p.id}
+                className="text-inherit no-underline"
+              >
+                <div className="p-4 space-y-3 rounded-2xl shadow-sm hover:shadow-md transition">
+                  <div className="h-40 bg-sidebar-ring rounded-md flex items-center justify-center">
+                    
+                  </div>
+                  <h1 className="text-sm font-medium">{p.name}</h1>
+                  <div className="inline-flex items-center text-xs font-medium px-2 py-1 rounded-md bg-yellow-400/90 text-white w-fit">
+                    <Star className="w-3.5 h-3.5 mr-1 fill-white text-white" />
+                    {p.rating}
+                  </div>
+                  <div className="flex flex-wrap gap-2 text-xs text-gray-500">
+                    {Object.entries(p.specs).map(([key, value]) => (
+                      <span key={key}>{value},</span>
+                    ))}
+                    <span>{p.warranty} Waranty</span>
+                  </div>
+
+                  <label className="flex items-center gap-2 text-xs text-gray-600">
+                    <Checkbox id={`compare-${p.id}`} />
+                    Add to Compare
+                  </label>
+                </div>
               </Link>
             ))}
           </div>
 
           {totalPages > 1 && (
-            <div className="flex items-center justify-center gap-2">
+            <div className="flex items-center justify-center gap-3">
               <Button
                 variant="outline"
                 size="sm"
